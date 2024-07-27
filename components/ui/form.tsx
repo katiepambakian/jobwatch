@@ -4,26 +4,23 @@ import React, {useState} from "react";
 import {createStyles, makeStyles, Typography,Paper,Button} from "@mui/material";
 
 import CustomTextField from "./customTextField"
-import CustomDropDown from "./customDropdown"
 
 
 type Values = {
     name : string,
     email : string,
-    age : string,
+    postcode: string,
+    password : string,
 }
 
-const ages = [
-    {value : "20-40",label :"From 20 to 40"},
-    {value : "40-50",label :"From 40 to 50"},
-]
 
 const Form = () => {
 
     const [values,setValues] = useState<Values>({
         name : "",
         email : "",
-        age : "",
+        postcode: "",
+        password : "",
     });
 
     const handleChange = (event : React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +38,8 @@ const Form = () => {
             <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col space-y-4">
                 <CustomTextField changeHandler={handleChange} label={"Name"} name={"name"}/>
                 <CustomTextField changeHandler={handleChange} label={"Email"} name={"email"}/>
-                <CustomDropDown label={"Age"} name={"age"} changeHandler={handleChange} values={ages} currentValue={values.age}/>
+                <CustomTextField changeHandler={handleChange} label={"Postcode"} name={"postcode"}/>
+                <CustomTextField changeHandler={handleChange} label={"Password"} name={"password"}/>
                 <Button type={"submit"} variant={"contained"} className="mt-6">Submit</Button>
             </form>
         </Paper>
