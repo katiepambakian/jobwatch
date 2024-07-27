@@ -1,37 +1,50 @@
-import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/card';
-import { signIn } from '@/lib/auth';
+// app/login/page.tsx
+import { FC } from 'react';
+import Head from 'next/head';
+import { Box, Typography, Button } from '@mui/material';
+import Link from 'next/link';
+import '../globals.css'
 
-export default function LoginPage() {
+const fetchTitle = async (): Promise<string> => {
+  // Simulating an API call or data fetching
+  return 'Login Page'; // Return your desired title or data here
+};
+
+interface BannerData {
+  backgroundimage: string;
+  title: string;
+ }
+
+const LoginPage: FC = async () => {
+  const title = await fetchTitle();
+
   return (
-    <div className="min-h-screen flex justify-center items-start md:items-center p-8">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>
-            This demo uses GitHub for authentication.
-          </CardDescription>
-        </CardHeader>
-        <CardFooter>
-          <form
-            action={async () => {
-              'use server';
-              await signIn('github', {
-                redirectTo: '/'
-              });
-            }}
-            className="w-full"
-          >
-            <Button className="w-full">Sign in with GitHub</Button>
-          </form>
-        </CardFooter>
-      </Card>
-    </div>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content="Login page description" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.jpg)' }}>
+      <Box 
+      sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        backgroundImage: 'url(../img/worker.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        alignItems: 'center', 
+        mt: 8 }}>
+        <Typography variant="h1" component="h1">
+          Welcome to the {title}
+          <Link href = "/register">Sign Up</Link>
+        </Typography>
+        
+        
+      </Box>
+      </div>
+    </>
   );
-}
+};
+
+export default LoginPage;
