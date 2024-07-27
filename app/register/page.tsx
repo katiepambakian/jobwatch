@@ -20,7 +20,7 @@ const RegisterPage: FC = async () => {
       </Head>
 
       <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.jpg)' }}>
-      </div>
+      
 
       <Box 
       sx={{ 
@@ -37,6 +37,7 @@ const RegisterPage: FC = async () => {
         
         
       </Box>
+      </div>
     </>
   );
 };
