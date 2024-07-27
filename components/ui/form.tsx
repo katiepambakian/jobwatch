@@ -44,7 +44,7 @@ const Form = () => {
             console.log(hashedPassword);
 
         
-            const response = await fetch('../../api/addUser.ts', {
+            const response = await fetch('../../api/addUser', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

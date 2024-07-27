@@ -2,6 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sql } from "@vercel/postgres";
 
+console.log(`Test`);
 
 export default async function addUser(req: NextApiRequest, res: NextApiResponse) {
   console.log(`Request method: ${req.method}`);
