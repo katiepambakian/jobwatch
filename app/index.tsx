@@ -6,7 +6,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     // Redirect to the desired default page
-    router.push('/signup');
+    router.push('/register');
   }, []);
 
   return (

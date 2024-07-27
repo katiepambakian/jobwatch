@@ -42,7 +42,7 @@ const Form = () => {
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(values.password, salt);
             console.log(hashedPassword);
-            alert("Signed up!");
+            alert("You are now registered with Job Watch");
 
         
             const response = await fetch('../../api/addUser', {
