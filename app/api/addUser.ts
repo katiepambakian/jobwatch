@@ -2,14 +2,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sql } from "@vercel/postgres";
 
-type Data = {
-  message: string;
-};
-
 
 export default async function addUser(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { email, postcode, password } = req.body;
+    console.log("Testing")
 
     if (!email || !postcode || !password) {
       res.status(400).json({ message: 'Missing required fields' });
