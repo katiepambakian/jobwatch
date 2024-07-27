@@ -60,8 +60,8 @@ importers:
         specifier: ^0.400.0
         version: 0.400.0(react@19.0.0-rc.0)
       next:
-        specifier: 15.0.0-canary.75
-        version: 15.0.0-canary.75(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react@19.0.0-rc.0)
+        specifier: 14.2
+        version: 14.2
       next-auth:
         specifier: 5.0.0-beta.19
         version: 5.0.0-beta.19(next@15.0.0-canary.75(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react@19.0.0-rc.0))(react@19.0.0-rc.0)
@@ -75,11 +75,11 @@ importers:
         specifier: ^15.8.1
         version: 15.8.1
       react:
-        specifier: 19.0.0-rc.0
-        version: 19.0.0-rc.0
+        specifier: 18.3.1
+        version: 18.3.1
       react-dom:
-        specifier: 19.0.0-rc.0
-        version: 19.0.0-rc.0(react@19.0.0-rc.0)
+        specifier: 18.3.1
+        version: 18.3.1
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
