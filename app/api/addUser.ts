@@ -4,9 +4,11 @@ import { sql } from "@vercel/postgres";
 
 
 export default async function addUser(req: NextApiRequest, res: NextApiResponse) {
+  console.log(`Request method: ${req.method}`);
+
   if (req.method === 'POST') {
     const { email, postcode, password } = req.body;
-    console.log("Testing")
+    console.log(`Received data: ${JSON.stringify(req.body)}`)
 
     if (!email || !postcode || !password) {
       res.status(400).json({ message: 'Missing required fields' });

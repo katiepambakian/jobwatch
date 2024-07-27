@@ -1,9 +1,8 @@
 "use client";
 
 import React, {useState} from "react";
-import {createStyles, makeStyles, Typography,Paper,Button} from "@mui/material";
+import {Typography,Paper,Button} from "@mui/material";
 import bcrypt from 'bcryptjs';
-
 import CustomTextField from "./customTextField"
 
 
@@ -42,6 +41,7 @@ const Form = () => {
             // Hash the password before sending
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(values.password, salt);
+            console.log(hashedPassword);
 
         
             const response = await fetch('/api/addUser', {
@@ -49,7 +49,10 @@ const Form = () => {
               headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify(values),
+              body: JSON.stringify({
+                ...values,
+                password: hashedPassword, // Use hashed password
+              }),
             });
 
             if (!response.ok) {
