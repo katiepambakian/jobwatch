@@ -34,19 +34,15 @@ const Form = () => {
         if (!values.email) errors.push("Email is required.");
         if (!values.postcode) errors.push("Postcode is required.");
         if (!values.password) errors.push("Password is required.");
-
-        if (errors.length > 0) {
-            alert("You did not enter information in all required fields");
-            return;
-        }
+        
         console.log(values)
-        {/** Need this to put the values into the database */}
+        {/** Need this to put the values into the database and let them know they are registered */}
         
     }
 
     return (
         <Paper className="bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-8 text-center shadow-lg">
-            <Typography variant={"h4"} className="mb-6">Sign up</Typography>
+            <Typography variant={"h4"} className="mb-6" bg-opacity-60 shadow-xl>Sign up</Typography>
             <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col space-y-4">
                 <CustomTextField changeHandler={handleChange} label={"Name"} name={"name"} required />
                 <CustomTextField changeHandler={handleChange} label={"Email"} name={"email"} inputType={"email"} required />
