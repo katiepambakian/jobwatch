@@ -1,7 +1,14 @@
 // app/login/page.tsx
 import { FC } from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
-import { Box, Typography, Button } from '@mui/material';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { Box, Typography, TextField, Button } from '@mui/material';
+
+interface LoginFormInputs {
+  email: string;
+  password: string;
+}
 
 const fetchTitle = async (): Promise<string> => {
   // Simulating an API call or data fetching
@@ -10,6 +17,12 @@ const fetchTitle = async (): Promise<string> => {
 
 const LoginPage: FC = async () => {
   const title = await fetchTitle();
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>();
+
+  const onSubmit: SubmitHandler<LoginFormInputs> = data => {
+    console.log(data);
+    // Handle login logic here
+  };
 
   return (
     <>
@@ -23,9 +36,46 @@ const LoginPage: FC = async () => {
         <Typography variant="h1" component="h1">
           Welcome to the {title}
         </Typography>
-        <Button variant="contained" color="primary" sx={{ mt: 4 }}>
-          Sign In
-        </Button>
+
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%', maxWidth: 400, marginTop: '32px' }}>
+          <TextField
+            fullWidth
+            label="Email"
+            variant="outlined"
+            margin="normal"
+            {...register('email', { required: 'Email is required' })}
+            error={!!errors.email}
+            helperText={errors.email ? errors.email.message : ''}
+          />
+          <TextField
+            fullWidth
+            label="Password"
+            type="password"
+            variant="outlined"
+            margin="normal"
+            {...register('password', { required: 'Password is required' })}
+            error={!!errors.password}
+            helperText={errors.password ? errors.password.message : ''}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ marginTop: 3, marginBottom: 2 }}
+          >
+            Sign In
+          </Button>
+        </form>
+
+        <Typography sx={{ marginTop: 2 }}>
+          Don't have an account?{' '}
+          <Link href="/register" passHref>
+            <Button variant="outlined" color="secondary">
+              Register
+            </Button>
+          </Link>
+        </Typography>
       </Box>
     </>
   );
