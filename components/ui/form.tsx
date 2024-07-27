@@ -38,8 +38,6 @@ const Form = () => {
           }
 
         console.log(values)
-        {/** Need this to put the values into the database and let them know they are registered */}
-
         try {
             // Hash the password before sending
             const salt = await bcrypt.genSalt(10);
@@ -53,13 +51,14 @@ const Form = () => {
               },
               body: JSON.stringify(values),
             });
-      
-            const result = await response.json();
-            if (response.ok) {
-              console.log('User added successfully:', result);
-            } else {
-              console.error('Error adding user:', result.message);
+
+            if (!response.ok) {
+                const result = await response.json();
+                console.error('Error adding user:', result.message);
+                return;
             }
+            const result = await response.json();
+            console.log('User added successfully:', result);
           } 
           catch (error: unknown) {
             if (error instanceof Error) {
@@ -70,7 +69,7 @@ const Form = () => {
           }
         
         
-    }
+    };
 
     const formStyle = {
         display: 'flex',
