@@ -1,21 +1,21 @@
-// pages/index.tsx
-import { NextPage } from 'next';
-import Head from 'next/head';
+// app/login/page.tsx
 import { FC } from 'react';
+import Head from 'next/head';
 import { Box, Typography, Button } from '@mui/material';
 
-// Define the type for props if needed
-interface HomePageProps {
-  title?: string;
-}
+const fetchTitle = async (): Promise<string> => {
+  // Simulating an API call or data fetching
+  return 'Login Page'; // Return your desired title or data here
+};
 
-// Define the page component
-const HomePage: NextPage<HomePageProps> = ({ title = 'Login' }) => {
+const LoginPage: FC = async () => {
+  const title = await fetchTitle();
+
   return (
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="A description of your page" />
+        <meta name="description" content="Login page description" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -24,20 +24,11 @@ const HomePage: NextPage<HomePageProps> = ({ title = 'Login' }) => {
           Welcome to the {title}
         </Typography>
         <Button variant="contained" color="primary" sx={{ mt: 4 }}>
-          Get Started
+          Sign In
         </Button>
       </Box>
     </>
   );
 };
 
-// Optionally, you can fetch data for server-side rendering or static generation
-export async function getStaticProps() {
-  return {
-    props: {
-      title: 'Home Page', // Example of passing props to the page
-    },
-  };
-}
-
-export default HomePage;
+export default LoginPage;
