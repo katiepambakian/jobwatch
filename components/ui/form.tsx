@@ -1,7 +1,9 @@
+"use client";
+
 import React, {useState} from "react";
 import {createStyles, makeStyles, Typography,Paper,Button} from "@mui/material";
 
-import CustomTextField from "./customTextField";
+import CustomTextField from "./customTextField"
 import CustomDropDown from "./customDropdown"
 
 
