@@ -5,7 +5,7 @@ import { Box, Typography, Button, createStyles, makeStyles, Paper } from '@mui/m
 import {Input} from '@nextui-org/input'
 import { Visibility } from '@mui/icons-material';
 import { isValid } from 'zod';
-import Form from "../form";
+import Form from "../../components/ui/form";
 
 
 const fetchTitle = async (): Promise<string> => {
