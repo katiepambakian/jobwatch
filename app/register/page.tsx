@@ -3,6 +3,8 @@ import { FC } from 'react';
 import Head from 'next/head';
 import { Box, Typography, Button } from '@mui/material';
 import {Input} from '@nextui-org/input'
+import { Visibility } from '@mui/icons-material';
+import { isValid } from 'zod';
 
 const fetchTitle = async (): Promise<string> => {
   // Simulating an API call or data fetching
@@ -21,12 +23,14 @@ const RegisterPage: FC = async () => {
       </Head>
 
       <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.jpg)' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8 }}>
-        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-        <Input type="email" label="Email" />
-        <Input type="email" label="Email" placeholder="Enter your email" />
-      </div>
-      </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8 }}>
+          <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+            <Input isRequired type="text" label="Name" labelPlacement ="outside"/>
+            <Input isRequired type="email" label="Email"  labelPlacement ="outside"/>
+            <Input isRequired type="password" label="Password"  labelPlacement ="outside"/>
+            <Input type= "text" label="Postcode"  labelPlacement ="outside"/>
+          </div>
+        </Box>
       </div>
     </>
   );
