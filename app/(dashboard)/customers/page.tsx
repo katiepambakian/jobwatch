@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
+import '../styles/globals.css'
 
 export default function CustomersPage() {
   return (

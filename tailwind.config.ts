@@ -5,7 +5,7 @@ export default {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx,css}',
     './src/**/*.{ts,tsx}'
   ],
   prefix: '',

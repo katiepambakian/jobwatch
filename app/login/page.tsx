@@ -3,6 +3,7 @@ import { FC } from 'react';
 import Head from 'next/head';
 import { Box, Typography, Button } from '@mui/material';
 import Link from 'next/link';
+import '../styles/globals.css'
 
 const fetchTitle = async (): Promise<string> => {
   // Simulating an API call or data fetching

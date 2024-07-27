@@ -6,6 +6,7 @@ import {Input} from '@nextui-org/input'
 import { Visibility } from '@mui/icons-material';
 import { isValid } from 'zod';
 import Form from "../../components/ui/form";
+import '../styles/globals.css'
 
 
 const fetchTitle = async (): Promise<string> => {
