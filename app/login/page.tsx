@@ -2,11 +2,17 @@
 import { FC } from 'react';
 import Head from 'next/head';
 import { Box, Typography, Button } from '@mui/material';
+import Link from 'next/link';
 
 const fetchTitle = async (): Promise<string> => {
   // Simulating an API call or data fetching
   return 'Login Page'; // Return your desired title or data here
 };
+
+interface BannerData {
+  backgroundimage: string;
+  title: string;
+ }
 
 const LoginPage: FC = async () => {
   const title = await fetchTitle();
@@ -30,6 +36,7 @@ const LoginPage: FC = async () => {
         mt: 8 }}>
         <Typography variant="h1" component="h1">
           Welcome to the {title}
+          <Link href = "/register">Sign Up</Link>
         </Typography>
         
         
