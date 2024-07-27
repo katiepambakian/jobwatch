@@ -1,0 +1,30 @@
+// pages/api/addUser.ts
+import { NextApiRequest, NextApiResponse } from 'next';
+import { sql } from "@vercel/postgres";
+
+export default async function addUser(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'POST') {
+    const { email, postcode, password } = req.body;
+
+    if (!email || !postcode || !password) {
+      res.status(400).json({ message: 'Missing required fields' });
+      return;
+    }
+
+    try {
+      await sql`
+        INSERT INTO users (email, postcode, password)
+        VALUES (${email}, ${postcode}, ${password})
+      `;
+      res.status(200).json({ message: 'User added successfully' });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        res.status(500).json({ message: 'Error adding user', error: error.message });
+      } else {
+        res.status(500).json({ message: 'An unknown error occurred' });
+      }
+    }
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }
+}
