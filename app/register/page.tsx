@@ -2,6 +2,7 @@
 import { FC } from 'react';
 import Head from 'next/head';
 import { Box, Typography, Button } from '@mui/material';
+import {Input} from '@nextui-org/input'
 
 const fetchTitle = async (): Promise<string> => {
   // Simulating an API call or data fetching
@@ -20,22 +21,11 @@ const RegisterPage: FC = async () => {
       </Head>
 
       <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.jpg)' }}>
-      
-
-      <Box 
-      sx={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        backgroundImage: 'url(../img/worker.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        alignItems: 'center', 
-        mt: 8 }}>
-        <Typography variant="h1" component="h1">
-          Enter your email in the form below to be put on our waitlist!
-        </Typography>
-        
-        
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8 }}>
+        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+        <Input type="email" label="Email" />
+        <Input type="email" label="Email" placeholder="Enter your email" />
+      </div>
       </Box>
       </div>
     </>

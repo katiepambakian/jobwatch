@@ -24,7 +24,7 @@ const LoginPage: FC = async () => {
         <meta name="description" content="Login page description" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.jpg)' }}>
       <Box 
       sx={{ 
         display: 'flex', 
@@ -41,6 +41,7 @@ const LoginPage: FC = async () => {
         
         
       </Box>
+      </div>
     </>
   );
 };
