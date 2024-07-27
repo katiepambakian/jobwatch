@@ -2,12 +2,13 @@ import csv
 from jobspy import scrape_jobs
 
 country = "" # User input
-Locator = "" # User input
+locator = "" # User input
+jobTitle = "" # User input
 
 jobs = scrape_jobs(
     site_name=["indeed", "linkedin", "zip_recruiter", "glassdoor"],
-    search_term="software engineer",
-    location = Locator,
+    search_term=jobTitle,
+    location = locator,
     results_wanted=20,
     hours_old=72, # (only Linkedin/Indeed is hour specific, others round up to days old)
     country_indeed=country,  # only needed for indeed / glassdoor
