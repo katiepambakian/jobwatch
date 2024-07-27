@@ -26,17 +26,7 @@ const RegisterPage: FC = async () => {
 
       <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.jpg)' }}>
        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8 }}>
-           {/*<div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-            <Input isRequired type="text" label="Name" labelPlacement ="outside"/>
-            <Input isRequired type="email" label="Email"  labelPlacement ="outside"/>
-            <Input isRequired type="password" label="Password"  labelPlacement ="outside"/>
-            <Input type= "text" label="Postcode"  labelPlacement ="outside"/>
-          </div>*/}
           <div><Form/></div>
-
-
-
-
         </Box>
       </div>
     </>

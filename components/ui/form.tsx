@@ -39,7 +39,7 @@ const Form = () => {
                 <CustomTextField changeHandler={handleChange} label={"Name"} name={"name"}/>
                 <CustomTextField changeHandler={handleChange} label={"Email"} name={"email"}/>
                 <CustomTextField changeHandler={handleChange} label={"Postcode"} name={"postcode"}/>
-                <CustomTextField changeHandler={handleChange} label={"Password"} name={"password"}/>
+                <CustomTextField changeHandler={handleChange} label={"Password"} name={"password"} inputType={"password"}/>
                 <Button type={"submit"} variant={"contained"} className="mt-6">Submit</Button>
             </form>
         </Paper>
