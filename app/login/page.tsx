@@ -19,13 +19,20 @@ const LoginPage: FC = async () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8 }}>
+      <Box 
+      sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        backgroundImage: 'url(../img/worker.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        alignItems: 'center', 
+        mt: 8 }}>
         <Typography variant="h1" component="h1">
           Welcome to the {title}
         </Typography>
-        <Button variant="contained" color="primary" sx={{ mt: 4 }}>
-          Sign In
-        </Button>
+        
+        
       </Box>
     </>
   );
