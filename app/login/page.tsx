@@ -1,75 +1,43 @@
-import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { TextField, Button, Grid, Box } from '@mui/material';
+// pages/index.tsx
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { FC } from 'react';
+import { Box, Typography, Button } from '@mui/material';
 
-interface FormValues {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
+// Define the type for props if needed
+interface HomePageProps {
+  title?: string;
 }
 
-const MyForm: React.FC = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
-
-  const onSubmit: SubmitHandler<FormValues> = data => {
-    console.log(data);
-  };
-
+// Define the page component
+const HomePage: NextPage<HomePageProps> = ({ title = 'Login' }) => {
   return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 3 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="First Name"
-            fullWidth
-            {...register('firstName', { required: 'First name is required' })}
-            error={!!errors.firstName}
-            helperText={errors.firstName?.message}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Last Name"
-            fullWidth
-            {...register('lastName', { required: 'Last name is required' })}
-            error={!!errors.lastName}
-            helperText={errors.lastName?.message}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            label="Email Address"
-            fullWidth
-            {...register('email', {
-              required: 'Email is required',
-              pattern: {
-                value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
-                message: 'Email is not valid',
-              },
-            })}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            label="Password"
-            type="password"
-            fullWidth
-            {...register('password', { required: 'Password is required' })}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button type="submit" variant="contained" fullWidth>
-            Submit
-          </Button>
-        </Grid>
-      </Grid>
-    </Box>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content="A description of your page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8 }}>
+        <Typography variant="h1" component="h1">
+          Welcome to the {title}
+        </Typography>
+        <Button variant="contained" color="primary" sx={{ mt: 4 }}>
+          Get Started
+        </Button>
+      </Box>
+    </>
   );
 };
 
-export default MyForm;
+// Optionally, you can fetch data for server-side rendering or static generation
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'Home Page', // Example of passing props to the page
+    },
+  };
+}
+
+export default HomePage;
