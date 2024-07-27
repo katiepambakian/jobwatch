@@ -42,8 +42,8 @@ const Form = () => {
 
     return (
         <Paper className="bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-8 text-center shadow-lg">
-            <Typography variant={"h4"} className="mb-6" bg-opacity-60 shadow-xl>Sign up</Typography>
-            <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col space-y-4">
+            <Typography variant={"h4"} className="mb-6">Sign up</Typography>
+            <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col space-y-4 bg-opacity-60 shadow-xl">
                 <CustomTextField changeHandler={handleChange} label={"Name"} name={"name"} required />
                 <CustomTextField changeHandler={handleChange} label={"Email"} name={"email"} inputType={"email"} required />
                 <CustomTextField changeHandler={handleChange} label={"Postcode"} name={"postcode"} />
