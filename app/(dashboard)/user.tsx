@@ -38,7 +38,11 @@ export async function User() {
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuItem>Support</DropdownMenuItem>
         <DropdownMenuSeparator />
+        <DropdownMenuItem>
+        <Link href="/register">Sign Up</Link>
+        </DropdownMenuItem>
         {user ? (
+          
           <DropdownMenuItem>
             <form
               action={async () => {
@@ -53,7 +57,9 @@ export async function User() {
           <DropdownMenuItem>
             <Link href="/login">Sign In</Link>
           </DropdownMenuItem>
-        )}
+          
+        )
+        }
       </DropdownMenuContent>
     </DropdownMenu>
   );

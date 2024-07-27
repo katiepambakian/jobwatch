@@ -29,7 +29,6 @@ const RegisterPage: FC = async () => {
         alignItems: 'center', 
         mt: 8 }}>
         <Typography variant="h1" component="h1">
-          Welcome to the {title}
           Enter your email in the form below to be put on our waitlist!
         </Typography>
         
