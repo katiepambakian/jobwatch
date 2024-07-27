@@ -2,6 +2,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sql } from "@vercel/postgres";
 
+type Data = {
+  message: string;
+};
+
+
 export default async function addUser(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { email, postcode, password } = req.body;
@@ -16,15 +21,13 @@ export default async function addUser(req: NextApiRequest, res: NextApiResponse)
         INSERT INTO users (email, postcode, password)
         VALUES (${email}, ${postcode}, ${password})
       `;
-      res.status(200).json({ message: 'User added successfully' });
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        res.status(500).json({ message: 'Error adding user', error: error.message });
-      } else {
-        res.status(500).json({ message: 'An unknown error occurred' });
-      }
+      res.status(201).json({ message: 'User added successfully' });
+    } catch (error) {
+      console.error('Error adding user:', error)
+      res.status(500).json({ message: 'Internal server error' });
     }
   } else {
-    res.status(405).json({ message: 'Method not allowed' });
+    res.setHeader('Allow', ['POST']);
+    res.status(405).json({ message: `Method ${req.method} Not Allowed` });
   }
 }
