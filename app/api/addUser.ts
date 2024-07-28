@@ -2,10 +2,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sql } from "@vercel/postgres";
 
-console.log(`Test`);
 
 export default async function addUser(req: NextApiRequest, res: NextApiResponse) {
-  console.log(`Request method: ${req.method}`);
+
 
   if (req.method === 'POST') {
     const { email, postcode, password } = req.body;
@@ -27,6 +26,7 @@ export default async function addUser(req: NextApiRequest, res: NextApiResponse)
       res.status(500).json({ message: 'Internal server error' });
     }
   } else {
+    console.log("not working!!!");
     res.setHeader('Allow', ['POST']);
     res.status(405).json({ message: `Method ${req.method} Not Allowed` });
   }
