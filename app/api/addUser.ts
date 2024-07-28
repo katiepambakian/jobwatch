@@ -1,4 +1,4 @@
-// pages/api/addUser.ts
+// app/api/addUser.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sql } from "@vercel/postgres";
 
