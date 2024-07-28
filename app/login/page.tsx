@@ -37,7 +37,7 @@ const LoginPage: FC = async () => {
         mt: 8 }}>
         <Typography variant="h1" component="h1">
           Welcome to the {title}
-          <Link href = "/register">Sign Up</Link>
+          <Link href = "/register">Sign Up</Link> {/**Link doesn't work properly */}
         </Typography>
         
         
