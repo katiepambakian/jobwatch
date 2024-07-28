@@ -45,7 +45,7 @@ const Form = () => {
             alert("You are now registered with Job Watch");
 
         
-            const response = await fetch('../../api/addUser', {
+            const response = await fetch('../api/addUser', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
