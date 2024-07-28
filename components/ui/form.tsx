@@ -1,3 +1,4 @@
+//app/components/ui/form.tsx
 "use client";
 
 import React, {useState} from "react";
@@ -45,26 +46,16 @@ const Form = () => {
             alert("You are now registered with Job Watch");
 
         
-            const response = await fetch('../../api/addUser', {
+            const response = await fetch('/api/addUser', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify({
-                ...values,
-                password: hashedPassword, // Use hashed password
-              }),
+              body: JSON.stringify({email:values.email, postcode:values.postcode, password:hashedPassword}),
             });
-
-            if (!response.ok) {
-                const result = await response.json();
-                console.error('Error adding user:', result.message);
-                return;
-            }
-            const result = await response.json();
-            console.log('User added successfully:', result);
-          } 
-          catch (error: unknown) {
+            const data = await response.json();
+            console.log(data.message);
+          }catch (error) {
             if (error instanceof Error) {
               console.error('Error submitting form:', error.message);
             } else {
