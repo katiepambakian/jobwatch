@@ -8,7 +8,7 @@ country = "" # User input
 locator = "" # User input
 jobTitle = "" # User input
 
-jobs = scrape_jobs(
+df = scrape_jobs(
     site_name=["indeed", "linkedin", "zip_recruiter", "glassdoor"],
     search_term=jobTitle,
     location = locator,
@@ -19,9 +19,8 @@ jobs = scrape_jobs(
     # linkedin_fetch_description=True # get full description , direct job url , company industry and job level (seniority level) for linkedin (slower)
     # proxies=["208.195.175.46:65095", "208.195.175.45:65095", "localhost"],
     )
-print(f"Found {len(jobs)} jobs")
-print(jobs.head())
-jobs.to_csv("jobs.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=False) # to csv
+print(f"Found {len(df)} jobs")
+# jobs.to_csv("jobs.csv", quoting=csv.QUOTE_NONNUMERIC, escapechar="\\", index=False) # to csv
 
 
 # Integration to SQL PostGre:
@@ -56,8 +55,6 @@ company_revenue, company_description, logo_photo_url, banner_photo_url, ceo_name
 
 cursor.execute(sql) 
   
-# import the csv file to create a dataframe 
-df = pd.read_csv("jobs.csv")
 # Create DataFrame
 print(df)
   
