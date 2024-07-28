@@ -43,8 +43,6 @@ const Form = () => {
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(values.password, salt);
             console.log(hashedPassword);
-            alert("You are now registered with Job Watch");
-
         
             const response = await fetch('/api/addUser', {
               method: 'POST',
@@ -55,11 +53,14 @@ const Form = () => {
             });
             const data = await response.json();
             console.log(data.message);
+            alert("Success! You are now registered with Job Watch");
           }catch (error) {
             if (error instanceof Error) {
               console.error('Error submitting form:', error.message);
+              alert("Error submitting form");
             } else {
               console.error('An unknown error occurred during form submission');
+              alert("An unknown error occurred during form submission");
             }
           }
         
