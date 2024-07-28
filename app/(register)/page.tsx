@@ -1,4 +1,4 @@
-// app/login/page.tsx
+// app/register/page.tsx
 import React, { FC} from 'react';
 import Head from 'next/head';
 import { Box, Typography, Button, createStyles, makeStyles, Paper } from '@mui/material';
